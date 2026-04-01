@@ -45,7 +45,7 @@
     
     SMTP setup pannitu mail send pannuvom
     
-    🔹 4. Query Builder
+🔹 4. Query Builder
     DB::table('users')->where('id',1)->get();
     Tamil
     
@@ -202,24 +202,24 @@
         
         👉 Outside use பண்ண முடியாது
         
-        2. Global
-              $x = 5;
-              
-              function test(){
-                global $x;
-                echo $x;
-              }
+                2. Global
+                      $x = 5;
+                      
+                      function test(){
+                        global $x;
+                        echo $x;
+                      }
+                
+                👉 Global variable access
+                
+                3. Static
+                      function test(){
+                        static $x = 0;
+                        $x++;
+                        echo $x;
+                  }
         
-        👉 Global variable access
-        
-        3. Static
-              function test(){
-                static $x = 0;
-                $x++;
-                echo $x;
-              }
-        
-        👉 Value retain ஆகும்
+                👉 Value retain ஆகும்
 
 🔹 2. break vs exit
         # break	exit
@@ -313,124 +313,378 @@
 
 🟣 OUTPUT QUESTIONS
 
-      🔹 1.
-      $x = "0";
-      if($x){
-        echo "true";
-      }else{
-        echo "false";
-      }
-      
-      👉 Output: false
-      
-      Tamil:
-      
-      "0" → false ஆக treat ஆகும்
+     🔹 1. PHP Condition Check
+                $x = "0";
+                if($x){
+                    echo 'true';
+                }else{
+                    echo 'false';
+                }
+                ✅ Output:
+                
+                👉 false
+                
+                💡 Explanation:
+                
+                In PHP, "0" is considered false in boolean context.
+                
+        🔹 2. Continue Statement
+                for($i=0;$i<=10;$i++){
+                    if($i==4){
+                        continue;
+                    }
+                    echo $i.'<br/>';
+                }
+                ✅ Output:
+                0
+                1
+                2
+                3
+                5
+                6
+                7
+                8
+                9
+                10
+                💡 Explanation:
+                continue skips only the current iteration
+                So 4 is skipped
+        🔹 3. Break Statement
+                for($i=0;$i<=10;$i++){
+                    if($i==4){
+                        break;
+                    }
+                    echo $i.'<br/>';
+                }
+                ✅ Output:
+                0
+                1
+                2
+                3
+                💡 Explanation:
+                break stops the loop completely when $i == 4
+        🔹 4. Variable Variables
+                $father = "mother";
+                $mother = "son";
+                echo $$father;
+                ✅ Output:
+                
+                👉 son
+                
+                💡 Explanation:
+                $father = "mother"
+                $$father → $mother
+                $mother = "son"
+        🔹 5. Remove Duplicates from Array
+                $array = array('0','2','3','3','4','5','5','6');
+                $result = array_unique($array);
+                print_r($result);
+                ✅ Output:
+                Array ( [0] => 0 [1] => 2 [2] => 3 [4] => 4 [5] => 5 [7] => 6 )
+                💡 Explanation:
+                array_unique() removes duplicate values
+                Keys are preserved
+                
+                👉 If you want reindex:
+                
+                $result = array_values(array_unique($array));
+        🔹 6. Single vs Double Quotes
+                $am = "james";
+                echo 'i am $am';
+                echo "i am $am";
+                ✅ Output:
+                i am $ami am james
 
-
-        🔹 2. continue
-        for($i=0;$i<=10;$i++){
-          if($i==4) continue;
-          echo $i." ";
-        }
         
-        👉 Skip 4
+       🟣 MYSQL
+        🔹 1. What is MySQL?
+                ✅ Answer
+                
+                MySQL is a Relational Database Management System (RDBMS) used to store data.
+                
+                💡 Explanation
+                
+                English: Stores data in tables (rows & columns)
+                Tamil: 👉 MySQL என்பது data-ஐ table format-ல் store பண்ணும் database
+                
+                🔸 Example
+                SELECT * FROM users;
+
+
+        🔹 2. MySQL Trigger
+                ✅ Answer
+                
+                Trigger is an auto-executing SQL query when event occurs.
+                
+                💡 Explanation
+                
+                English: Runs automatically on INSERT/UPDATE/DELETE
+                Tamil: 👉 Trigger → automatic ஆக run ஆகும் query
+                
+                🔸 Example
+                CREATE TRIGGER log_user
+                AFTER INSERT ON users
+                FOR EACH ROW
+                INSERT INTO logs VALUES (NOW());
+
+
+        🔹 3. Primary Key vs Foreign Key vs Unique Key
+                ✅ Answer
+                Primary Key → unique + no null
+                Foreign Key → relation
+                Unique Key → no duplicate
+                💡 Tamil
+                
+                👉 Primary → unique + null இல்லாது
+                👉 Foreign → relation create பண்ணும்
+                👉 Unique → duplicate இல்லாது
+                
+                🔸 Example
+                PRIMARY KEY(id),
+                FOREIGN KEY(user_id) REFERENCES users(id),
+                UNIQUE(email)
+
+
+        🔹 4. MySQL Index
+                ✅ Answer
+                
+                Index improves query performance
+                
+                💡 Tamil
+                
+                👉 fast search செய்ய உதவும்
+                
+                🔸 Example
+                CREATE INDEX idx_name ON users(name);
+
+
+        🔹 5. MySQL vs MySQLi
+                ✅ Answer
+                mysql → old (deprecated)
+                mysqli → improved (secure)
+                💡 Tamil
+                
+                👉 mysqli → new version + secure
+                
+        🟣 JQUERY / JS
+
+        🔹 6. jQuery Data Types
+                ✅ Answer
+                string
+                number
+                object
+                💡 Tamil
+                
+                👉 string, number, object use பண்ணுவாங்க
+
+
+        🔹 7. Cross Site Errors
+                ✅ Answer
+                XSS → script attack
+                CSRF → fake request
+                💡 Tamil
+                
+                👉 XSS → malicious script
+                👉 CSRF → user தெரியாம request
         
-        🔹 3. break
-        for($i=0;$i<=10;$i++){
-          if($i==4) break;
-          echo $i." ";
-        }
+        🔹 8. AJAX Syntax
+
+                ✅ Answer
+                $.ajax({
+                  url: 'test',
+                  type: 'GET',
+                  success: function(res){
+                    console.log(res);
+                  }
+                });
+                💡 Tamil
+                
+                👉 reload இல்லாமல் data fetch பண்ணலாம்
+                
+        🔹 9. window.onload vs $(document).ready()
+                ✅ Answer
+                onload → full page
+                ready → DOM only
+                💡 Tamil
+                
+                👉 onload → images + full load
+                👉 ready → HTML மட்டும்
+
+
+        🟣 PHP / LARAVEL
+
+        🔹 10. Latest Version
+                ✅ Answer
+                PHP → 8.x
+                Laravel → 9 (as per question time)
+
+
+        🔹 11. Spaceship Operator <=>
+
+                ✅ Answer
+                
+                Returns -1, 0, 1
+                
+                🔸 Example
+                echo 5 <=> 10; // -1
+                💡 Tamil
+                
+                👉 compare result return பண்ணும்
         
-        👉 Stop at 4
+        🔹 12. in_array vs array_search
+
+                ✅ Answer
+                in_array → true/false
+                array_search → key
+                🔸 Example
+                in_array('a',['a','b']); // true
+                array_search('a',['a','b']); // 0
+
+        🔹 13. count vs sizeof
+
+                ✅ Answer
+                
+                Both same
+                
+                count($arr);
+                sizeof($arr);
+
+        🔹 14. Factory & Faker
+
+                ✅ Answer
+                
+                Generate test data
+                
+                User::factory()->create();
+                💡 Tamil
+                
+                👉 fake data generate பண்ணும்
         
-        🔹 4. Variable Variable
-        $father = "son";
-        $son = "Ravi";
+        🔹 15. Cache vs Cookie
+
+                Cache	Cookie
+                Server	Browser
+                💡 Tamil
+                
+                👉 Cache → server
+                👉 Cookie → browser
         
-        echo $$father;
+        🔹 16. Default Auth in Laravel
+                ✅ Answer
+                
+                Laravel uses session-based authentication
         
-        👉 Output: Ravi
+        🔹 17. REST API Methods
+                ✅ Answer
+                
+                GET, POST, PUT, DELETE
         
-        🔹 5. Remove duplicates
-        array_unique([1,1,2,3]);
-        🔹 6. String
-        $am = "james";
+        🔹 18. CSRF
+                ✅ Answer
+                
+                Security token @csrf
+
+        🔹 19. Upload 2GB File
+                ✅ Answer
+                php.ini change:
+                upload_max_filesize=2G
+                post_max_size=2G
+
+        🔹 20. Seeder
+                php artisan db:seed
+
+        🔹 21. Migration
+                php artisan migrate
+                Single file:
+                php artisan migrate --path=...
+
+        🔹 22. Local Storage
+                ✅ Example
+                localStorage.setItem("name","John");
+
+        🔹 23. Hello World JS
+                document.body.innerHTML = "Hello World";
+
+        🔹 24. Having vs Where
+                WHERE → before group
+                HAVING → after group
+
+        🔹 25. array_merge vs array_combine
+                array_merge([1],[2]);
+                array_combine(['a'],[1]);
+
+        🔹 26. CURL Alternative
+                ✅ Answer
+                
+                Use HTTP client (Guzzle) in Laravel
         
-        echo 'i am $am';
-        echo "i am $am";
+        🔹 27. DB Connect Laravel
+                DB_DATABASE=test
+                DB_USERNAME=root
+
+        🔹 28. Query Builder
+                DB::table('users')->get();
+
+        🔹 29. mysqli_connect vs mysql_connect
+                mysql_connect → removed
+                mysqli_connect → used now
+
+        🔹 30. API Status Codes
+                200 → success
+                404 → not found
+                500 → server error
+
+        🔹 31. Scripting Language
+                ✅ Answer
+                
+                Executed line by line
         
-        👉 Output:
-        i am $am
-        i am james
+                👉 Tamil: interpreter மூலம் run ஆகும்
 
-🟣 MYSQL
-🔹 Trigger
 
-Auto run query
+        🔹 32. Compiler vs Interpreter
+                Compiler	Interpreter
+                full compile	line by line
 
-🔹 Keys
-Primary → unique
-Foreign → relation
-Unique → no duplicate
-🔹 Index
+        🔹 33. Queue
+                ✅ Answer
+                
+                Background job
+        
+        🔹 34. Scheduler
+                php artisan schedule:run
 
-Query fast ஆகும்
+        🔹 35. Cron
+                ✅ Answer
+                
+                Auto run task
 
-🔹 mysql vs mysqli
 
-mysqli → improved
+        🔹 36. OOPS
+                ✅ Answer
+                
+                Object Oriented Programming
 
-🟣 JQUERY
-🔹 Data Types
-string
-number
-object
-🔹 Security
+        👉 class, object, inheritance
 
-XSS / CSRF
 
-🔹 AJAX
-$.ajax({
-  url:'test',
-  type:'GET'
-});
-🔹 onload vs ready
-onload → full page
-ready → DOM மட்டும்
-🟣 ADVANCED
-🔹 Factory & Faker
+        🔹 37. Middleware
+        ✅ Answer
+        
+            Filter HTTP request
+        
+        🔹 38. Event & Listener
+                ✅ Answer
+                
+                Event trigger → listener handle
 
-Test data create
 
-🔹 Cache vs Cookie
-Cache	Cookie
-Server	Browser
-🔹 CSRF
+        🔹 39. Observer
+        ✅ Answer
+                Model events handle
+        
+        🔹 40. Artisan Commands
+                php artisan make:model User
 
-Security token
-
-🔹 Seeder
-php artisan db:seed
-🔹 Migration single file
-php artisan migrate --path=...
-🔹 Spaceship Operator
-$a <=> $b;
-
-👉 -1 / 0 / 1 return
-
-🔹 Having vs Where
-WHERE → before group
-HAVING → after group
-🔹 array_merge vs combine
-array_merge()
-array_combine()
-🔹 Queue
-
-Background job
-
-🔹 Scheduler
-php artisan schedule:run
-🔹 Cron
-
-Auto run task
+        🔹 41. Custom Artisan Command
+                php artisan make:command TestCommand
