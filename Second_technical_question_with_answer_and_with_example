@@ -1,0 +1,436 @@
+🟣 LARAVEL
+
+    🔹 1. Service Container
+    ✅ English
+    
+    It is Laravel’s dependency injection system.
+    
+    app()->make(UserService::class);
+    
+    👉 Automatically creates objects
+    
+    Tamil
+    
+    Service Container → object create pannum automatically
+
+
+🔹 2. Events & Listeners
+
+    ✅ English
+    
+    Used for decoupling logic
+    
+    Example:
+    
+    event(new OrderPlaced($order));
+    
+    Listener handles:
+    
+    class SendEmail {
+        public function handle($event) {}
+    }
+    Tamil
+    
+    Event → trigger
+    Listener → action perform
+
+
+🔹 3. Send Email
+
+    Mail::to($user->email)->send(new TestMail());
+    
+    👉 Configure in .env
+    
+    Tamil
+    
+    SMTP setup pannitu mail send pannuvom
+    
+    🔹 4. Query Builder
+    DB::table('users')->where('id',1)->get();
+    Tamil
+    
+    SQL ah easy ah write panna use pannuvom
+
+🔹 5. Middleware
+
+    English
+    
+    Filters request
+    
+    Route::middleware('auth')->group(...)
+    Tamil
+    
+    Request check pannum (login irukka?)
+
+🔹 6. Throttle
+
+    English
+    
+    Limit API requests
+    
+    Route::middleware('throttle:60,1');
+    Tamil
+    
+    Rate limit
+
+🔹 7. Routes Folder Files
+
+    web.php
+    api.php
+    console.php
+    channels.php
+    Tamil
+    
+    Route define pannum files
+
+🔹 8. MVC
+
+    English
+    
+    Model → DB
+    View → UI
+    Controller → logic
+    
+    Tamil
+    
+    Model → DB
+    View → UI
+    Controller → logic
+
+🔹 9. Why Laravel?
+
+    English
+    MVC
+    Security
+    Easy CRUD
+    Built-in auth
+    Tamil
+    
+    Fast development + secure
+
+🔹 10. JWT
+
+    English
+    
+    Token-based authentication
+    
+    Tamil
+    
+    Login panna token generate pannum
+
+🔹 11. Reverse Routing
+
+    route('user.show',1);
+    Tamil
+    
+    Route name use panni URL generate pannuvom
+
+🔹 12. Global Variables
+
+    config/
+    helper functions
+    Tamil
+    
+    Global use panna config/helper use pannuvom
+
+🔹 13. Storage
+
+    Storage::put('file.txt','data');
+    Tamil
+    
+    File store pannuvom
+
+🔹 14. Artisan Commands
+
+    php artisan migrate
+    php artisan make:model
+    Tamil
+    
+    CLI commands
+
+
+🔹 15. Kernel Types
+    HTTP Kernel
+    Console Kernel
+
+🔹 16. Multiple DB
+    DB::connection('mysql2')->table('users')->get();
+
+
+
+
+🟣 PHP
+     1.   🔹 Magic Methods
+      
+      ✅ English:
+      
+      Magic methods are special predefined functions in PHP that start with __ (double underscore).
+      They are automatically called by PHP in specific situations.
+      
+      ✅ Tamil:
+      
+      Magic Methods என்பது PHP-ல் உள்ள special functions.
+      இவை __ (double underscore) கொண்டு ஆரம்பிக்கும்.
+
+
+                __construct()
+                          # Automatically called when an object is created   /   Object create ஆன உடனே automatically run ஆகும்
+                          # Used for initialization                          /   ஆரம்ப values set பண்ண பயன்படும்
+                __get()
+                          # Called when accessing a private or undefined property  /  Private அல்லது இல்லாத property access பண்ணும் போது call ஆகும்
+                __set()
+                          # Called when setting value to private or undefined property  /  Private propertyக்கு value assign பண்ணும் போது call ஆகும்
+                __toString()
+                          # Called when object is treated like a string   /  Object-ஐ string ஆக print பண்ணும் போது call ஆகும்
+                          # Must return a string    /  String return செய்ய வேண்டும்
+
+🔹 1. Variable Scope
+        ✅ English:
+        
+        Variable scope defines where a variable can be accessed
+        
+        ✅ Tamil:
+        
+        Variable scope என்பது variable எங்கு பயன்படுத்தலாம் என்பதை சொல்கிறது
+        
+                🔸 Types:
+                1. Local
+                Inside function only
+                function test(){
+                  $x = 10;
+                }
+        
+        👉 Outside use பண்ண முடியாது
+        
+        2. Global
+              $x = 5;
+              
+              function test(){
+                global $x;
+                echo $x;
+              }
+        
+        👉 Global variable access
+        
+        3. Static
+              function test(){
+                static $x = 0;
+                $x++;
+                echo $x;
+              }
+        
+        👉 Value retain ஆகும்
+
+🔹 2. break vs exit
+        # break	exit
+        # Loop stop	Full script stop
+
+            for($i=0;$i<5;$i++){
+              if($i==3) break;
+              echo $i;
+            }
+
+      👉 Output: 0 1 2
+
+🔹 3. REST vs SOAP
+
+        REST	SOAP
+        JSON	XML
+        Fast	Heavy
+        ✅ Tamil:
+        
+        REST → Fast
+        SOAP → Heavy & strict
+
+🔹 4. Traits
+          ✅ English:
+          
+              Used to reuse code in multiple classes
+          
+          ✅ Tamil:
+          
+              Code reuse பண்ண use ஆகும்
+          
+                trait Test {
+                  function say(){
+                    echo "Hello";
+                  }
+                }
+          
+                class A {
+                  use Test;
+                }
+
+
+🔹 5. Errors
+        Type	Meaning
+        Notice	Small issue
+        Warning	Medium
+        Fatal	Script stop
+
+
+🔹 6. implode & explode
+
+      $arr = ["a","b","c"];
+      echo implode(",", $arr);
+      
+      👉 Output: a,b,c
+      
+      $str = "a,b,c";
+      print_r(explode(",", $str));
+
+🔹 7. Inheritance Types
+        Types:
+        Single
+        Multi-level
+        class A {}
+        class B extends A {}
+
+🔹 8. Access Modifiers
+        Type	Meaning
+        public	Anywhere
+        private	Same class
+        protected	Class + child
+
+
+🔹 9. Get Image Size
+
+      getimagesize("img.jpg");
+      
+      👉 Image width & height கிடைக்கும்
+
+🔹 10. file_get_contents vs file_put_contents
+
+      Function	Work
+      get	Read file
+      put	Write file
+
+🔹 11. Enable Errors
+      error_reporting(E_ALL);
+      ini_set('display_errors',1);
+      
+      👉 Errors display ஆகும்
+
+🟣 OUTPUT QUESTIONS
+
+      🔹 1.
+      $x = "0";
+      if($x){
+        echo "true";
+      }else{
+        echo "false";
+      }
+      
+      👉 Output: false
+      
+      Tamil:
+      
+      "0" → false ஆக treat ஆகும்
+
+
+        🔹 2. continue
+        for($i=0;$i<=10;$i++){
+          if($i==4) continue;
+          echo $i." ";
+        }
+        
+        👉 Skip 4
+        
+        🔹 3. break
+        for($i=0;$i<=10;$i++){
+          if($i==4) break;
+          echo $i." ";
+        }
+        
+        👉 Stop at 4
+        
+        🔹 4. Variable Variable
+        $father = "son";
+        $son = "Ravi";
+        
+        echo $$father;
+        
+        👉 Output: Ravi
+        
+        🔹 5. Remove duplicates
+        array_unique([1,1,2,3]);
+        🔹 6. String
+        $am = "james";
+        
+        echo 'i am $am';
+        echo "i am $am";
+        
+        👉 Output:
+        i am $am
+        i am james
+
+🟣 MYSQL
+🔹 Trigger
+
+Auto run query
+
+🔹 Keys
+Primary → unique
+Foreign → relation
+Unique → no duplicate
+🔹 Index
+
+Query fast ஆகும்
+
+🔹 mysql vs mysqli
+
+mysqli → improved
+
+🟣 JQUERY
+🔹 Data Types
+string
+number
+object
+🔹 Security
+
+XSS / CSRF
+
+🔹 AJAX
+$.ajax({
+  url:'test',
+  type:'GET'
+});
+🔹 onload vs ready
+onload → full page
+ready → DOM மட்டும்
+🟣 ADVANCED
+🔹 Factory & Faker
+
+Test data create
+
+🔹 Cache vs Cookie
+Cache	Cookie
+Server	Browser
+🔹 CSRF
+
+Security token
+
+🔹 Seeder
+php artisan db:seed
+🔹 Migration single file
+php artisan migrate --path=...
+🔹 Spaceship Operator
+$a <=> $b;
+
+👉 -1 / 0 / 1 return
+
+🔹 Having vs Where
+WHERE → before group
+HAVING → after group
+🔹 array_merge vs combine
+array_merge()
+array_combine()
+🔹 Queue
+
+Background job
+
+🔹 Scheduler
+php artisan schedule:run
+🔹 Cron
+
+Auto run task
