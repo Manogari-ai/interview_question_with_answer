@@ -417,3 +417,145 @@ hasManyThrough	Indirect relation
       Tamil
       
       👉 DB la irukka value direct use pannalam
+
+
+🔴 16. ENUM in MySQL
+
+
+        ✅ English
+        
+        ENUM is used to store fixed set of values.
+        
+        CREATE TABLE users (
+          status ENUM('active', 'inactive', 'blocked')
+        );
+        
+        👉 Only these values allowed.
+        
+        Tamil
+        
+        ENUM → predefined values matum store pannum
+        Example: active / inactive
+
+
+🔴 17. Subqueries
+
+        ✅ English
+        
+        Query inside another query.
+        
+        SELECT name FROM users 
+        WHERE id IN (SELECT user_id FROM orders);
+        
+        👉 Inner query first run → outer query use result
+        
+        Tamil
+        
+        👉 Oru query kula innoru query
+
+
+🔴 18. Name store panna datatype
+
+        ✅ English
+        
+        Use:
+        
+        VARCHAR(255)
+        
+        👉 Because names are variable length
+        
+        Tamil
+        
+        👉 Name store panna best datatype → VARCHAR
+        Fixed illa → adhunaala VARCHAR use pannuvom
+
+
+
+🔴 19. OOPS Concepts
+        ✅ English
+        Encapsulation → Data hide
+        Inheritance → Reuse code
+        Polymorphism → Same method, diff behavior
+        Abstraction → Hide logic
+        Example:
+        class Animal {
+            public function sound() {}
+        }
+        Tamil
+        Encapsulation → data hide pannrathu
+        Inheritance → reuse
+        Polymorphism → same function different output
+        Abstraction → internal logic hide
+
+
+🔴 20. Facade in Laravel
+
+        ✅ English
+        
+        Facade = Static interface to classes
+        
+        Example:
+        
+        Cache::get('key');
+        
+        👉 Behind scenes → service container
+        
+        Tamil
+        
+        Facade → shortcut access
+        Example:
+        👉 Cache::get()
+
+
+🔴 21. Interface in OOPS
+
+        ✅ English
+        
+        Interface defines methods, but no implementation.
+        
+        interface Payment {
+            public function pay();
+        }
+        class Razorpay implements Payment {
+            public function pay() {
+                echo "Paid";
+            }
+        }
+        Tamil
+        
+        Interface → method define pannum, code illa
+        Class implement pannum
+
+
+🔵 Round 3: Laravel Task (CRUD)
+
+        🔴 CRUD Full Flow
+
+                ✅ 1. Migration
+                Schema::create('users', function (Blueprint $table) {
+                    $table->id();
+                    $table->string('name');
+                });
+
+                ✅ 2. Model
+                class User extends Model {}
+
+                ✅ 3. Controller
+                public function store(Request $req) {
+                    User::create($req->all());
+                }
+
+                ✅ 4. Blade Form
+                <form method="POST">
+                <input name="name">
+                </form>
+                Tamil
+                
+                CRUD =
+                
+                Create → insert
+                Read → display
+                Update → edit
+                Delete → remove
+        
+        👉 Laravel la Controller + Model + Blade use pannuvom
