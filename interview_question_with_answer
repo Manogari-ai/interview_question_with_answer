@@ -1,39 +1,39 @@
 🔴 1. HTTP Error Codes (401, 403, 419, 500)
-✅ English
-401 Unauthorized → Login required / invalid auth
-403 Forbidden → No permission
-419 Page Expired → CSRF token mismatch (Laravel specific)
-500 Internal Server Error → Server/code issue
+        ✅ English
+        401 Unauthorized → Login required / invalid auth
+        403 Forbidden → No permission
+        419 Page Expired → CSRF token mismatch (Laravel specific)
+        500 Internal Server Error → Server/code issue
 
 
-Example (Laravel 419 - AJAX issue)
-$.ajax({
-    url: "/save",
-    type: "POST",
-    data: {
-        name: "test",
-        _token: $('meta[name="csrf-token"]').attr('content')
-    }
-});
+        Example (Laravel 419 - AJAX issue)
+            $.ajax({
+                url: "/save",
+                type: "POST",
+                data: {
+                    name: "test",
+                    _token: $('meta[name="csrf-token"]').attr('content')
+                }
+            });
 
 
-Tamil
-401 → Login pannala / wrong authentication
-403 → Access permission illa
-419 → CSRF token mismatch (Laravel la common)
-500 → Server error / code problem
-
-👉 AJAX la 419 varum if CSRF token include pannala.
+        Tamil
+        401 → Login pannala / wrong authentication
+        403 → Access permission illa
+        419 → CSRF token mismatch (Laravel la common)
+        500 → Server error / code problem
+        
+        👉 AJAX la 419 varum if CSRF token include pannala.
 
 
 
 🔴 2. Eloquent Relationships
-✅ English + Example
-class User extends Model {
-    public function posts() {
-        return $this->hasMany(Post::class);
-    }
-}
+    ✅ English + Example
+        class User extends Model {
+            public function posts() {
+                return $this->hasMany(Post::class);
+            }
+        }
 Type	Meaning
 hasOne	: One record
       Meaning: One record is related to one record.
